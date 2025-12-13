@@ -1,0 +1,157 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to an undefined method RoboFile\:\:_remove\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: RoboFile.php
+
+		-
+			message: '#^Call to an undefined method RoboFile\:\:_tmpDir\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: RoboFile.php
+
+		-
+			message: '#^Call to an undefined method RoboFile\:\:taskComposerInstall\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: RoboFile.php
+
+		-
+			message: '#^Call to an undefined method RoboFile\:\:taskCopyDir\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: RoboFile.php
+
+		-
+			message: '#^Call to an undefined method RoboFile\:\:taskExec\(\)\.$#'
+			identifier: method.notFound
+			count: 4
+			path: RoboFile.php
+
+		-
+			message: '#^Call to an undefined method RoboFile\:\:taskPack\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: RoboFile.php
+
+		-
+			message: '#^Call to an undefined method RoboFile\:\:taskReplaceInFile\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: RoboFile.php
+
+		-
+			message: '#^Instantiated class Symfony\\Component\\Finder\\Finder not found\.$#'
+			identifier: class.notFound
+			count: 2
+			path: RoboFile.php
+
+		-
+			message: '#^Class LibresignAPIClient does not have a constructor and must be instantiated without any parameters\.$#'
+			identifier: new.noConstructor
+			count: 1
+			path: front/apirest.php
+
+		-
+			message: '#^Access to undefined constant CommonITILValidation\:\:ACCEPTED\.$#'
+			identifier: classConstant.notFound
+			count: 1
+			path: inc/apiclient.class.php
+
+		-
+			message: '#^Call to an undefined method LibresignAPIClient\:\:returnError\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: inc/apiclient.class.php
+
+		-
+			message: '#^Call to an undefined static method Session\:\:changeProfile\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: inc/apiclient.class.php
+
+		-
+			message: '#^Call to an undefined static method Session\:\:initEntityProfiles\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: inc/apiclient.class.php
+
+		-
+			message: '#^Call to static method getTable\(\) on an unknown class TicketValidation\.$#'
+			identifier: class.notFound
+			count: 3
+			path: inc/apiclient.class.php
+
+		-
+			message: '#^Instantiated class GLPIUploadHandler not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/apiclient.class.php
+
+		-
+			message: '#^Instantiated class TicketValidation not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/apiclient.class.php
+
+		-
+			message: '#^LibresignAPIClient\:\:initApi\(\) calls parent\:\:initApi\(\) but LibresignAPIClient does not extend any class\.$#'
+			identifier: class.noParent
+			count: 1
+			path: inc/apiclient.class.php
+
+		-
+			message: '#^Caught class GuzzleHttp\\Exception\\RequestException not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/config.class.php
+
+		-
+			message: '#^Caught class GuzzleHttp\\Exception\\BadResponseException not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/hook.class.php
+
+		-
+			message: '#^Parameter \$ticket of method PluginLibresignHook\:\:deleteRelation\(\) has invalid type TicketValidation\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/hook.class.php
+
+		-
+			message: '#^Parameter \$ticket of method PluginLibresignHook\:\:insertRelation\(\) has invalid type TicketValidation\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/hook.class.php
+
+		-
+			message: '#^Parameter \$ticket of method PluginLibresignHook\:\:itemUpdate\(\) has invalid type TicketValidation\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/hook.class.php
+
+		-
+			message: '#^Parameter \$ticket of method PluginLibresignHook\:\:preItemAdd\(\) has invalid type TicketValidation\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/hook.class.php
+
+		-
+			message: '#^Parameter \$ticket of method PluginLibresignHook\:\:preItemPurge\(\) has invalid type TicketValidation\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/hook.class.php
+
+		-
+			message: '#^Parameter \$ticketValidation of method PluginLibresignHook\:\:getPdf\(\) has invalid type TicketValidation\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/hook.class.php
+
+		-
+			message: '#^Access to an undefined property PluginLibresignHttpclient\:\:\$httpClient\.$#'
+			identifier: property.notFound
+			count: 1
+			path: inc/httpclient.class.php
