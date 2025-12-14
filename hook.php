@@ -33,54 +33,11 @@
  */
 function plugin_libresign_install() {
    global $DB;
+   include_once(GLPI_ROOT . '/inc/migration.class.php');
+   $migration = new Migration(110000);
 
-   if (!$DB->tableExists("glpi_plugin_libresign_files")) {
-      $query = "CREATE TABLE glpi.glpi_plugin_libresign_files (
-                  ticket_id int(11) NOT NULL,
-                  request_date timestamp DEFAULT now() NOT NULL,
-                  response_date timestamp DEFAULT NULL NULL,
-                  user_id int(11) NOT NULL,
-                  file_uuid varchar(36) NOT NULL
-               )
-               ENGINE=InnoDB
-               DEFAULT CHARSET=utf8
-               COLLATE=utf8_unicode_ci;";
-      $DB->queryOrDie($query, $DB->error());
-   }
-
-   if (!$DB->tableExists('glpi_plugin_libresign_configs')) {
-      $query = "CREATE TABLE `glpi_plugin_libresign_configs`(
-                  `id` int(11) NOT NULL,
-                  `nextcloud_url`  VARCHAR(255) NULL,
-                  `username`  VARCHAR(255) NULL,
-                  `password`  VARCHAR(255) NULL,
-                  `default_display_name`  VARCHAR(255) NULL,
-                  `default_filename`  VARCHAR(255) NULL,
-                  `default_request_comment`  TEXT NULL,
-                  `default_accept_comment`  TEXT NULL,
-                  `system_user_id` int(11) NOT NULL DEFAULT 0,
-                  `date_mod` datetime default NULL,
-                  PRIMARY KEY  (`id`)
-                ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
-      $DB->queryOrDie($query, 'Error in creating glpi_plugin_libresign_configs'.
-                              "<br>".$DB->error());
-
-      $DB->insertOrDie(
-         'glpi_plugin_libresign_configs', [
-            'id' => 1,
-            'nextcloud_url' => '$DOMAIN/apps/libresign/api/0.1/sign/register',
-            'username' => null,
-            'password' => null,
-            'default_display_name' => 'firstname',
-            'default_filename' => t_libresign('Accept'),
-            'default_request_comment' => t_libresign('Validate GLPI Ticket'),
-            'default_accept_comment' => t_libresign('Digitally signed on LibreSign'),
-            'system_user_id' => 0,
-            'date_mod' => null
-         ],
-         'Error during update glpi_plugin_pdf_configs<br>' . $DB->error()
-      );
-   }
+   $migration->executeMigration('empty-1.0.0.sql');
+   $migration->executeMigration();
    return true;
 }
 
@@ -91,15 +48,16 @@ function plugin_libresign_install() {
  */
 function plugin_libresign_uninstall() {
    global $DB;
+   include_once(GLPI_ROOT . '/inc/migration.class.php');
+   $migration = new Migration(110000);
 
    if ($DB->tableExists("glpi_plugin_libresign_files")) {
-      $query = "DROP TABLE `glpi_plugin_libresign_files`";
-      $DB->query($query) or die("error deleting glpi_plugin_libresign_files");
+      $migration->dropTable('glpi_plugin_libresign_files');
    }
    if ($DB->tableExists('glpi_plugin_libresign_configs')) {
-      $query = "DROP TABLE `glpi_plugin_libresign_configs`";
-      $DB->query($query) or die("error deleting glpi_plugin_libresign_configs");
+      $migration->dropTable('glpi_plugin_libresign_configs');
    }
 
+   $migration->executeMigration();
    return true;
 }

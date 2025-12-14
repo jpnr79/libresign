@@ -90,7 +90,7 @@ function plugin_version_libresign() {
       'requirements'   => [
          'glpi' => [
             'min' => '9.2',
-            'max' => '9.6'
+            'max' => '12.0'
          ]
       ]
    ];
