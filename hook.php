@@ -51,7 +51,7 @@ function plugin_libresign_install() {
  */
 function plugin_libresign_uninstall() {
    global $DB;
-   include_once(GLPI_ROOT . '/inc/migration.class.php');
+   include_once(GLPI_ROOT . '/plugins/libresign/inc/migration.class.php');
    $migration = new Migration(110000);
 
    if ($DB->tableExists("glpi_plugin_libresign_files")) {
