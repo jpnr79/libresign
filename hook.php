@@ -33,10 +33,13 @@
  */
 function plugin_libresign_install() {
    global $DB;
+   if (!defined('GLPI_ROOT')) {
+      define('GLPI_ROOT', dirname(__DIR__, 2));
+   }
    include_once(GLPI_ROOT . '/inc/migration.class.php');
    $migration = new Migration(110000);
 
-   $migration->executeMigration('empty-1.0.0.sql');
+   $migration->executeMigration();
    $migration->executeMigration();
    return true;
 }
