@@ -36,7 +36,7 @@ function plugin_libresign_install() {
    if (!defined('GLPI_ROOT')) {
       define('GLPI_ROOT', dirname(__DIR__, 2));
    }
-   include_once(GLPI_ROOT . '/inc/migration.class.php');
+   include_once(GLPI_ROOT . '/plugins/libresign/inc/migration.class.php');
    $migration = new Migration(110000);
 
    $migration->executeMigration();
